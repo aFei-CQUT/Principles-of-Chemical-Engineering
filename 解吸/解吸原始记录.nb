@@ -1,0 +1,812 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     31377,        804]
+NotebookOptionsPosition[     29367,        755]
+NotebookOutlinePosition[     30327,        788]
+CellTagsIndexPosition[     30284,        785]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", "\:539f\:59cb\:6570\:636e", "*)"}]], "Input",
+ CellChangeTimes->{{3.924234695059461*^9, 3.924234726038*^9}, {
+  3.924242632283075*^9, 3.924242672110758*^9}, {3.924242762020845*^9, 
+  3.924242774965063*^9}, {3.924242903546573*^9, 3.9242429241241436`*^9}, {
+  3.924242973923656*^9, 3.924242973923656*^9}, {3.924243015673166*^9, 
+  3.9242430438028774`*^9}, {3.924246628683149*^9, 3.924246635696443*^9}, {
+  3.92424674559037*^9, 3.924246748700447*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"f2184f8c-717e-c046-bcc4-7c279b18a760"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["V", "\:7a7a"], "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "34", ",", "30", ",", "26", ",", "22", ",", "18", ",", "14", ",", "10", 
+     ",", "6"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["t", "\:7a7a"], "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "40.4", ",", "32.3", ",", "37.8", ",", "39.0", ",", "39.5", ",", "39.9", 
+     ",", "40.1", ",", "42.6"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["p", "\:7a7a"], "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "3.6", ",", "2.8", ",", "2.1", ",", "1.3", ",", "0.7", ",", "0.2", ",", 
+     RowBox[{"-", "0.3"}], ",", 
+     RowBox[{"-", "0.7"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["p", "\:5b54\:677f\:538b\:964d"], "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.37", ",", "1.07", ",", "0.82", ",", "0.58", ",", "0.39", ",", "0.20", 
+     ",", "0.10", ",", "0.03"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[CapitalDelta]p", "mmH2O"], "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "224", ",", "189", ",", "139", ",", "101", ",", "70", ",", "41", ",", 
+     "22", ",", "7"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[CapitalDelta]p", "\:4eea\:5668\:663e\:793a"], "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "2.3", ",", "1.9", ",", "1.4", ",", "1.0", ",", "0.7", ",", "0.4", ",", 
+      "0.2", ",", "0.1"}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"name", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Item", "[", 
+      RowBox[{"\"\<\:5e8f\:53f7\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(V\), \
+\(\:7a7a\)]\)/\!\(\*SuperscriptBox[\(m\), \
+\(3\)]\)\[CenterDot]\!\(\*SuperscriptBox[\(h\), \(-1\)]\)\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(t\), \(\:7a7a\)]\)/\[Degree]C\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{"\"\<\!\(\*SubscriptBox[\(p\), \(\:7a7a\)]\)/kPa\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(p\), \(\:5b54\:677f\:538b\:964d\)]\)/kPa\>\"",
+        ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     "\"\<\:5168\:5854\:538b\:964d\>\"", ",", "SpanFromLeft"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"span", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "SpanFromAbove", ",", "SpanFromAbove", ",", "SpanFromAbove", ",", 
+     "SpanFromAbove", ",", "SpanFromAbove", ",", 
+     "\"\<\!\(\*SubscriptBox[\(\[CapitalDelta]p\), \(mmH2O\)]\)/mm\>\"", ",", 
+     "\"\<\!\(\*SubscriptBox[\(\[CapitalDelta]p\), \(\:4eea\:5668\:663e\:793a\
+\)]\)/kPa\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rank", "=", 
+   RowBox[{"Range", "[", "8", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithRank", "=", 
+   RowBox[{"{", 
+    RowBox[{"rank", ",", 
+     SubscriptBox["V", "\:7a7a"], ",", 
+     SubscriptBox["t", "\:7a7a"], ",", 
+     SubscriptBox["p", "\:7a7a"], ",", 
+     SubscriptBox["p", "\:5b54\:677f\:538b\:964d"], ",", 
+     SubscriptBox["\[CapitalDelta]p", "mmH2O"], ",", 
+     SubscriptBox["\[CapitalDelta]p", "\:4eea\:5668\:663e\:793a"]}], " ", 
+    "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"dataWithSpan", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{
+     RowBox[{"Transpose", "[", "dataWithRank", "]"}], ",", "span"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithName", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"dataWithSpan", ",", "name"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"grid1", "=", 
+  RowBox[{"Grid", "[", 
+   RowBox[{"dataWithName", ",", 
+    RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+    RowBox[{"Alignment", "\[Rule]", "Center"}]}], 
+   "]"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.924234695059461*^9, 3.924234726038*^9}, {
+   3.924242632283075*^9, 3.924242672110758*^9}, {3.924242762020845*^9, 
+   3.92424276412511*^9}, {3.924242974001766*^9, 3.924242974001766*^9}, 
+   3.924243015688787*^9, 3.924246628686611*^9, 3.924246671452255*^9, 
+   3.924339664987026*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"36075689-f6d9-714e-8def-7deda7f905ae"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ItemBox["\<\"\:5e8f\:53f7\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(V\\), \
+\\(\:7a7a\\)]\\)/\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)\[CenterDot]\\!\\(\\*SuperscriptBox[\\(h\\), \\(-1\\)]\\)\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(t\\), \
+\\(\:7a7a\\)]\\)/\[Degree]C\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(\:7a7a\\)]\\)/kPa\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(p\\), \
+\\(\:5b54\:677f\:538b\:964d\\)]\\)/kPa\"\>",
+      Alignment->Center,
+      StripOnInput->False], "\<\"\:5168\:5854\:538b\:964d\"\>", 
+     "\[SpanFromLeft]"},
+    {"\[SpanFromAbove]", "\[SpanFromAbove]", "\[SpanFromAbove]", 
+     "\[SpanFromAbove]", 
+     "\[SpanFromAbove]", "\<\"\\!\\(\\*SubscriptBox[\\(\[CapitalDelta]p\\), \
+\\(mmH2O\\)]\\)/mm\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(\[CapitalDelta]p\\), \
+\\(\:4eea\:5668\:663e\:793a\\)]\\)/kPa\"\>"},
+    {"1", "34", "40.4`", "3.6`", "1.37`", "224", "2.3`"},
+    {"2", "30", "32.3`", "2.8`", "1.07`", "189", "1.9`"},
+    {"3", "26", "37.8`", "2.1`", "0.82`", "139", "1.4`"},
+    {"4", "22", "39.`", "1.3`", "0.58`", "101", "1.`"},
+    {"5", "18", "39.5`", "0.7`", "0.39`", "70", "0.7`"},
+    {"6", "14", "39.9`", "0.2`", "0.2`", "41", "0.4`"},
+    {"7", "10", "40.1`", 
+     RowBox[{"-", "0.3`"}], "0.1`", "22", "0.2`"},
+    {"8", "6", "42.6`", 
+     RowBox[{"-", "0.7`"}], "0.03`", "7", "0.1`"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {{Center}}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{
+  3.9243396663492756`*^9, {3.924339815764042*^9, 3.924339827975348*^9}, 
+   3.9253804958486595`*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"57a913d3-ecd9-0f48-a6a6-d7436564301c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["V", "\:7a7a"], "=", 
+   RowBox[{"{", 
+    RowBox[{"16", ",", "13", ",", "10", ",", "7", ",", "6", ",", "4"}], 
+    "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["t", "\:7a7a"], "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "40.6", ",", "42.5", ",", "44.0", ",", "44.5", ",", "44.3", ",", "44.5"}],
+     "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["p", "\:7a7a"], "=", 
+   RowBox[{"{", 
+    RowBox[{"2.2", ",", "0.4", ",", 
+     RowBox[{"-", "0.3"}], ",", 
+     RowBox[{"-", "0.8"}], ",", 
+     RowBox[{"-", "1.1"}], ",", 
+     RowBox[{"-", "1.2"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["p", "\:5b54\:677f\:538b\:964d"], "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.27", ",", "0.18", ",", "0.10", ",", "0.05", ",", "0.03", ",", "0.01"}],
+     "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[CapitalDelta]p", "mmH2O"], "=", 
+   RowBox[{"{", 
+    RowBox[{"349", ",", "159", ",", "90", ",", "40", ",", "26", ",", "11"}], 
+    "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[CapitalDelta]p", "\:4eea\:5668\:663e\:793a"], " ", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "3.5", ",", "1.6", ",", "0.9", ",", "0.4", ",", "0.3", ",", "0.1"}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"name", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Item", "[", 
+      RowBox[{"\"\<\:5e8f\:53f7\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(V\), \
+\(\:7a7a\)]\)/\!\(\*SuperscriptBox[\(m\), \
+\(3\)]\)\[CenterDot]\!\(\*SuperscriptBox[\(h\), \(-1\)]\)\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(t\), \(\:7a7a\)]\)/\[Degree]C\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{"\"\<\!\(\*SubscriptBox[\(p\), \(\:7a7a\)]\)/kPa\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(p\), \(\:5b54\:677f\:538b\:964d\)]\)/kPa\>\"",
+        ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     "\"\<\:5168\:5854\:538b\:964d\>\"", ",", "SpanFromLeft"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"span", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "SpanFromAbove", ",", "SpanFromAbove", ",", "SpanFromAbove", ",", 
+     "SpanFromAbove", ",", "SpanFromAbove", ",", 
+     "\"\<\!\(\*SubscriptBox[\(\[CapitalDelta]p\), \(mmH2O\)]\)/mm\>\"", ",", 
+     "\"\<\!\(\*SubscriptBox[\(\[CapitalDelta]p\), \(\:4eea\:5668\:663e\:793a\
+\)]\)/kPa\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rank", "=", 
+   RowBox[{"Range", "[", "6", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithRank", "=", 
+   RowBox[{"{", 
+    RowBox[{"rank", ",", 
+     SubscriptBox["V", "\:7a7a"], ",", 
+     SubscriptBox["t", "\:7a7a"], ",", 
+     SubscriptBox["p", "\:7a7a"], ",", 
+     SubscriptBox["p", "\:5b54\:677f\:538b\:964d"], ",", 
+     SubscriptBox["\[CapitalDelta]p", "mmH2O"], ",", 
+     SubscriptBox["\[CapitalDelta]p", "\:4eea\:5668\:663e\:793a"]}], " ", 
+    "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"dataWithSpan", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{
+     RowBox[{"Transpose", "[", "dataWithRank", "]"}], ",", "span"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithName", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"dataWithSpan", ",", "name"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grid2", "=", 
+  RowBox[{"Grid", "[", 
+   RowBox[{"dataWithName", ",", 
+    RowBox[{"Frame", "->", "All"}]}], 
+   "]"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.924234695059461*^9, 3.924234726038*^9}, {
+   3.924242632283075*^9, 3.924242672110758*^9}, {3.924242762020845*^9, 
+   3.9242427900565166`*^9}, {3.9242429740173874`*^9, 3.9242429740173874`*^9}, 
+   3.924243015688787*^9, 3.924246628689558*^9, 3.92424667145525*^9, 
+   3.924339669402907*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"c3bc268a-02a1-694b-a3c2-f8f7b5b877fd"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ItemBox["\<\"\:5e8f\:53f7\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(V\\), \
+\\(\:7a7a\\)]\\)/\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)\[CenterDot]\\!\\(\\*SuperscriptBox[\\(h\\), \\(-1\\)]\\)\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(t\\), \
+\\(\:7a7a\\)]\\)/\[Degree]C\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(\:7a7a\\)]\\)/kPa\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(p\\), \
+\\(\:5b54\:677f\:538b\:964d\\)]\\)/kPa\"\>",
+      Alignment->Center,
+      StripOnInput->False], "\<\"\:5168\:5854\:538b\:964d\"\>", 
+     "\[SpanFromLeft]"},
+    {"\[SpanFromAbove]", "\[SpanFromAbove]", "\[SpanFromAbove]", 
+     "\[SpanFromAbove]", 
+     "\[SpanFromAbove]", "\<\"\\!\\(\\*SubscriptBox[\\(\[CapitalDelta]p\\), \
+\\(mmH2O\\)]\\)/mm\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(\[CapitalDelta]p\\), \
+\\(\:4eea\:5668\:663e\:793a\\)]\\)/kPa\"\>"},
+    {"1", "16", "40.6`", "2.2`", "0.27`", "349", "3.5`"},
+    {"2", "13", "42.5`", "0.4`", "0.18`", "159", "1.6`"},
+    {"3", "10", "44.`", 
+     RowBox[{"-", "0.3`"}], "0.1`", "90", "0.9`"},
+    {"4", "7", "44.5`", 
+     RowBox[{"-", "0.8`"}], "0.05`", "40", "0.4`"},
+    {"5", "6", "44.3`", 
+     RowBox[{"-", "1.1`"}], "0.03`", "26", "0.3`"},
+    {"6", "4", "44.5`", 
+     RowBox[{"-", "1.2`"}], "0.01`", "11", "0.1`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{
+  3.9243396698570232`*^9, {3.9243398157796555`*^9, 3.9243398279909*^9}, 
+   3.9253804958799477`*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"53bdd280-1c40-1e4a-b5cc-56db19fcb39a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["V", "\:6c27"], "=", 
+   RowBox[{"{", 
+    RowBox[{"0.1", ",", "0.1", ",", "0.1"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["V", "\:6c34"], "=", 
+   RowBox[{"{", 
+    RowBox[{"100", ",", "100", ",", "100"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["V", "\:7a7a"], "=", 
+   RowBox[{"{", 
+    RowBox[{"17", ",", "10", ",", "5"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[CapitalDelta]p", "mmH2O"], "=", 
+   RowBox[{"{", 
+    RowBox[{"147", ",", "61", ",", "13"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[CapitalDelta]p", "\:4eea\:5668\:663e\:793a"], " ", "=", 
+   RowBox[{"{", 
+    RowBox[{"1.5", ",", "0.6", ",", "0.2"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["c", "\:5bcc\:6c27\:6c34"], "=", 
+   RowBox[{"{", 
+    RowBox[{"28.70", ",", "26.06", ",", "29.02"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["c", "\:8d2b\:6c27\:6c34"], "=", 
+   RowBox[{"{", 
+    RowBox[{"9.43", ",", "9.24", ",", "9.19"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["t", "\:6c34"], "=", 
+   RowBox[{"{", 
+    RowBox[{"26.8", ",", "26.9", ",", "27.4"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"name", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Item", "[", 
+      RowBox[{"\"\<\:5e8f\:53f7\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(V\), \
+\(\:6c27\)]\)/\!\(\*SuperscriptBox[\(m\), \
+\(3\)]\)\[CenterDot]\!\(\*SuperscriptBox[\(h\), \(-1\)]\)\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(V\), \
+\(\:6c34\)]\)/\!\(\*SuperscriptBox[\(m\), \
+\(3\)]\)\[CenterDot]\!\(\*SuperscriptBox[\(h\), \(-1\)]\)\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(V\), \
+\(\:7a7a\)]\)/\!\(\*SuperscriptBox[\(m\), \
+\(3\)]\)\[CenterDot]\!\(\*SuperscriptBox[\(h\), \(-1\)]\)\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{"\"\<\:5168\:5854\:538b\:964d\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", "SpanFromLeft", 
+     ",", "\"\<\!\(\*SubscriptBox[\(c\), \(\:5bcc\:6c27\:6c34\)]\)/mg\
+\[CenterDot]\!\(\*SuperscriptBox[\(L\), \(-1\)]\)\>\"", ",", 
+     "\"\<\!\(\*SubscriptBox[\(c\), \
+\(\:8d2b\:6c27\:6c34\)]\)/mg\[CenterDot]\!\(\*SuperscriptBox[\(L\), \(-1\)]\)\
+\>\"", ",", "\"\<\!\(\*SubscriptBox[\(t\), \(\:6c34\)]\)/\[Degree]C\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"span", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "SpanFromAbove", ",", "SpanFromAbove", ",", "SpanFromAbove", ",", 
+     "SpanFromAbove", ",", 
+     "\"\<\!\(\*SubscriptBox[\(\[CapitalDelta]p\), \(mmH2O\)]\)/mm\>\"", ",", 
+     "\"\<\!\(\*SubscriptBox[\(\[CapitalDelta]p\), \(\:4eea\:5668\:663e\:793a\
+\)]\)\>\"", ",", "SpanFromAbove", ",", "SpanFromAbove"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rank", "=", 
+   RowBox[{"Range", "[", "3", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithRank", "=", 
+   RowBox[{"{", 
+    RowBox[{"rank", ",", 
+     SubscriptBox["V", "\:6c27"], ",", 
+     SubscriptBox["V", "\:6c34"], ",", 
+     SubscriptBox["V", "\:7a7a"], ",", 
+     SubscriptBox["\[CapitalDelta]p", "mmH2O"], ",", 
+     SubscriptBox["\[CapitalDelta]p", "\:4eea\:5668\:663e\:793a"], ",", 
+     SubscriptBox["c", "\:5bcc\:6c27\:6c34"], ",", 
+     SubscriptBox["c", "\:8d2b\:6c27\:6c34"], ",", 
+     SubscriptBox["t", "\:6c34"]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithSpan", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{
+     RowBox[{"Transpose", "[", "dataWithRank", "]"}], ",", "span"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithName", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"dataWithSpan", ",", "name"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grid3", "=", 
+  RowBox[{"Grid", "[", 
+   RowBox[{"dataWithName", ",", 
+    RowBox[{"Frame", "->", "All"}]}], 
+   "]"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.924234695059461*^9, 3.924234726038*^9}, {
+   3.924242632283075*^9, 3.924242672110758*^9}, {3.924242762020845*^9, 
+   3.92424276412511*^9}, 3.924242814284334*^9, {3.924242974033558*^9, 
+   3.924242974033558*^9}, 3.924243015688787*^9, {3.924246628691702*^9, 
+   3.9242466286996937`*^9}, {3.92424667145759*^9, 3.9242466714674873`*^9}, 
+   3.924339673416172*^9, {3.9253804929719753`*^9, 3.9253804934406147`*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"938a942f-5720-2c41-9800-f5bdd12ec07c"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ItemBox["\<\"\:5e8f\:53f7\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(V\\), \
+\\(\:6c27\\)]\\)/\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)\[CenterDot]\\!\\(\\*SuperscriptBox[\\(h\\), \\(-1\\)]\\)\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(V\\), \
+\\(\:6c34\\)]\\)/\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)\[CenterDot]\\!\\(\\*SuperscriptBox[\\(h\\), \\(-1\\)]\\)\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(V\\), \
+\\(\:7a7a\\)]\\)/\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)\[CenterDot]\\!\\(\\*SuperscriptBox[\\(h\\), \\(-1\\)]\\)\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\:5168\:5854\:538b\:964d\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     "\[SpanFromLeft]", "\<\"\\!\\(\\*SubscriptBox[\\(c\\), \\(\:5bcc\:6c27\
+\:6c34\\)]\\)/mg\[CenterDot]\\!\\(\\*SuperscriptBox[\\(L\\), \
+\\(-1\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(c\\), \
+\\(\:8d2b\:6c27\:6c34\\)]\\)/mg\[CenterDot]\\!\\(\\*SuperscriptBox[\\(L\\), \
+\\(-1\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(t\\), \\(\:6c34\\)]\\)/\
+\[Degree]C\"\>"},
+    {"\[SpanFromAbove]", "\[SpanFromAbove]", "\[SpanFromAbove]", 
+     "\[SpanFromAbove]", "\<\"\\!\\(\\*SubscriptBox[\\(\[CapitalDelta]p\\), \
+\\(mmH2O\\)]\\)/mm\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(\[CapitalDelta]p\\), \
+\\(\:4eea\:5668\:663e\:793a\\)]\\)\"\>", "\[SpanFromAbove]", 
+     "\[SpanFromAbove]", "\[SpanFromAbove]"},
+    {"1", "0.1`", "100", "17", "147", "1.5`", "28.7`", "9.43`", "26.8`"},
+    {"2", "0.1`", "100", "10", "61", "0.6`", "26.06`", "9.24`", "26.9`"},
+    {"3", "0.1`", "100", "5", "13", "0.2`", "29.02`", "9.19`", "27.4`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{
+  3.9243396737457337`*^9, {3.924339815810854*^9, 3.924339828006546*^9}, 
+   3.9253804959112015`*^9},
+ CellLabel->"Out[42]=",ExpressionUUID->"a1cd1957-8878-a341-8f7a-a08eebf4d740"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["V", "\:6c27"], "=", 
+   RowBox[{"{", 
+    RowBox[{"0.1", ",", "0.1", ",", "0.1"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["V", "\:6c34"], "=", 
+   RowBox[{"{", 
+    RowBox[{"120", ",", "100", ",", "80"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["V", "\:7a7a"], "=", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", "10", ",", "10"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[CapitalDelta]p", "mmH2O"], "=", 
+   RowBox[{"{", 
+    RowBox[{"65", ",", "60", ",", "55"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[CapitalDelta]p", "\:4eea\:5668\:663e\:793a"], " ", "=", 
+   RowBox[{"{", 
+    RowBox[{"0.7", ",", "0.6", ",", "0.6"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["c", "\:5bcc\:6c27\:6c34"], "=", 
+   RowBox[{"{", 
+    RowBox[{"33.30", ",", "28.81", ",", "21.50"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["c", "\:8d2b\:6c27\:6c34"], "=", 
+   RowBox[{"{", 
+    RowBox[{"9.33", ",", "9.30", ",", "9.36"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["t", "\:6c34"], "=", 
+   RowBox[{"{", 
+    RowBox[{"27.7", ",", "27.9", ",", "28.0"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"name", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Item", "[", 
+      RowBox[{"\"\<\:5e8f\:53f7\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(V\), \
+\(\:6c27\)]\)/\!\(\*SuperscriptBox[\(m\), \
+\(3\)]\)\[CenterDot]\!\(\*SuperscriptBox[\(h\), \(-1\)]\)\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(V\), \
+\(\:6c34\)]\)/\!\(\*SuperscriptBox[\(m\), \
+\(3\)]\)\[CenterDot]\!\(\*SuperscriptBox[\(h\), \(-1\)]\)\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(V\), \
+\(\:7a7a\)]\)/\!\(\*SuperscriptBox[\(m\), \
+\(3\)]\)\[CenterDot]\!\(\*SuperscriptBox[\(h\), \(-1\)]\)\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", 
+     RowBox[{"Item", "[", 
+      RowBox[{"\"\<\:5168\:5854\:538b\:964d\>\"", ",", 
+       RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", "SpanFromLeft", 
+     ",", "\"\<\!\(\*SubscriptBox[\(c\), \(\:5bcc\:6c27\:6c34\)]\)/mg\
+\[CenterDot]\!\(\*SuperscriptBox[\(L\), \(-1\)]\)\>\"", ",", 
+     "\"\<\!\(\*SubscriptBox[\(c\), \
+\(\:8d2b\:6c27\:6c34\)]\)/mg\[CenterDot]\!\(\*SuperscriptBox[\(L\), \(-1\)]\)\
+\>\"", ",", "\"\<\!\(\*SubscriptBox[\(t\), \(\:6c34\)]\)/\[Degree]C\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"span", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "SpanFromAbove", ",", "SpanFromAbove", ",", "SpanFromAbove", ",", 
+     "SpanFromAbove", ",", 
+     "\"\<\!\(\*SubscriptBox[\(\[CapitalDelta]p\), \(mmH2O\)]\)/mm\>\"", ",", 
+     "\"\<\!\(\*SubscriptBox[\(\[CapitalDelta]p\), \(\:4eea\:5668\:663e\:793a\
+\)]\)\>\"", ",", "SpanFromAbove", ",", "SpanFromAbove"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rank", "=", 
+   RowBox[{"Range", "[", "3", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithRank", "=", 
+   RowBox[{"{", 
+    RowBox[{"rank", ",", 
+     SubscriptBox["V", "\:6c27"], ",", 
+     SubscriptBox["V", "\:6c34"], ",", 
+     SubscriptBox["V", "\:7a7a"], ",", 
+     SubscriptBox["\[CapitalDelta]p", "mmH2O"], ",", 
+     SubscriptBox["\[CapitalDelta]p", "\:4eea\:5668\:663e\:793a"], ",", 
+     SubscriptBox["c", "\:5bcc\:6c27\:6c34"], ",", 
+     SubscriptBox["c", "\:8d2b\:6c27\:6c34"], ",", 
+     SubscriptBox["t", "\:6c34"]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithSpan", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{
+     RowBox[{"Transpose", "[", "dataWithRank", "]"}], ",", "span"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataWithName", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"dataWithSpan", ",", "name"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"grid4", "=", 
+  RowBox[{"Grid", "[", 
+   RowBox[{"dataWithName", ",", 
+    RowBox[{"Frame", "->", "All"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{3.924339731650149*^9},
+ CellLabel->"In[43]:=",ExpressionUUID->"aa46f0a3-6d65-a940-94a9-3c746ec9f7b5"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ItemBox["\<\"\:5e8f\:53f7\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(V\\), \
+\\(\:6c27\\)]\\)/\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)\[CenterDot]\\!\\(\\*SuperscriptBox[\\(h\\), \\(-1\\)]\\)\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(V\\), \
+\\(\:6c34\\)]\\)/\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)\[CenterDot]\\!\\(\\*SuperscriptBox[\\(h\\), \\(-1\\)]\\)\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\\!\\(\\*SubscriptBox[\\(V\\), \
+\\(\:7a7a\\)]\\)/\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)\[CenterDot]\\!\\(\\*SuperscriptBox[\\(h\\), \\(-1\\)]\\)\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     ItemBox["\<\"\:5168\:5854\:538b\:964d\"\>",
+      Alignment->Center,
+      StripOnInput->False], 
+     "\[SpanFromLeft]", "\<\"\\!\\(\\*SubscriptBox[\\(c\\), \\(\:5bcc\:6c27\
+\:6c34\\)]\\)/mg\[CenterDot]\\!\\(\\*SuperscriptBox[\\(L\\), \
+\\(-1\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(c\\), \
+\\(\:8d2b\:6c27\:6c34\\)]\\)/mg\[CenterDot]\\!\\(\\*SuperscriptBox[\\(L\\), \
+\\(-1\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(t\\), \\(\:6c34\\)]\\)/\
+\[Degree]C\"\>"},
+    {"\[SpanFromAbove]", "\[SpanFromAbove]", "\[SpanFromAbove]", 
+     "\[SpanFromAbove]", "\<\"\\!\\(\\*SubscriptBox[\\(\[CapitalDelta]p\\), \
+\\(mmH2O\\)]\\)/mm\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(\[CapitalDelta]p\\), \
+\\(\:4eea\:5668\:663e\:793a\\)]\\)\"\>", "\[SpanFromAbove]", 
+     "\[SpanFromAbove]", "\[SpanFromAbove]"},
+    {"1", "0.1`", "120", "10", "65", "0.7`", "33.3`", "9.33`", "27.7`"},
+    {"2", "0.1`", "100", "10", "60", "0.6`", "28.81`", "9.3`", "27.9`"},
+    {"3", "0.1`", "80", "10", "55", "0.6`", "21.5`", "9.36`", "28.`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{
+  3.924339732042521*^9, {3.92433981584214*^9, 3.9243398280377655`*^9}, 
+   3.925380495926811*^9},
+ CellLabel->"Out[57]=",ExpressionUUID->"238afb77-8575-2244-a072-8e5b17a551ae"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Column", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "grid1", ",", " ", "grid2", ",", " ", "grid3", ",", " ", "grid4"}], 
+     "}"}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.924234695059461*^9, 3.924234726038*^9}, {
+   3.924242632283075*^9, 3.924242672110758*^9}, {3.924242762020845*^9, 
+   3.92424276412511*^9}, {3.924242974033558*^9, 3.924242974033558*^9}, 
+   3.924243015688787*^9, {3.9242440701626015`*^9, 3.924244072714037*^9}, {
+   3.9242441208222427`*^9, 3.924244255310549*^9}, {3.9242445934159565`*^9, 
+   3.9242446017035027`*^9}, 3.9242447054531784`*^9, 3.924244749986576*^9, {
+   3.924244835208877*^9, 3.9242448540855446`*^9}, {3.924244983588087*^9, 
+   3.924245064265964*^9}, {3.924245614116356*^9, 3.924245614245289*^9}, {
+   3.924245734374159*^9, 3.924245736308769*^9}, 3.924246314262337*^9, 
+   3.9242465821167126`*^9, {3.924246620483267*^9, 3.924246628890074*^9}, {
+   3.924246671475427*^9, 3.9242466717381573`*^9}, {3.92433967814724*^9, 
+   3.92433972697773*^9}, {3.924339811418028*^9, 3.9243398127033987`*^9}, 
+   3.9243398731998787`*^9},
+ CellLabel->"In[58]:=",ExpressionUUID->"9e581922-df32-c944-9745-2d8ec0488d80"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Quit", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.924246504036028*^9, 3.924246523363718*^9}},
+ CellLabel->"In[59]:=",ExpressionUUID->"791e25a7-62d2-f44e-bdc5-349a4c1141ea"]
+},
+WindowSize->{1141.2, 604.8},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingStartingPageNumber->1,
+PageHeaders->{{
+   Cell[
+    TextData[{
+      StyleBox[
+       CounterBox["Page"], "PageNumber"], "   ", "|", " ", 
+      ValueBox["FileName"]}], "Header", 
+    CellMargins -> {{0, Inherited}, {Inherited, Inherited}}], None, None}, {
+  None, None, None}},
+PageFooters->{{None, None, None}, {None, None, None}},
+PageHeaderLines->{False, False},
+PageFooterLines->{False, False},
+PrintingOptions->{"FacingPages"->False,
+"FirstPageFace"->Right,
+"FirstPageFooter"->False,
+"FirstPageHeader"->False},
+Magnification:>0.8 Inherited,
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"24eb86c6-9054-7945-a20d-e30d5b0ab744"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 555, 8, 22, "Input",ExpressionUUID->"f2184f8c-717e-c046-bcc4-7c279b18a760"],
+Cell[CellGroupData[{
+Cell[1138, 32, 4426, 117, 260, "Input",ExpressionUUID->"36075689-f6d9-714e-8def-7deda7f905ae"],
+Cell[5567, 151, 2065, 47, 163, "Output",ExpressionUUID->"57a913d3-ecd9-0f48-a6a6-d7436564301c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7669, 203, 4229, 114, 244, "Input",ExpressionUUID->"c3bc268a-02a1-694b-a3c2-f8f7b5b877fd"],
+Cell[11901, 319, 1944, 46, 135, "Output",ExpressionUUID->"53bdd280-1c40-1e4a-b5cc-56db19fcb39a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13882, 370, 4948, 129, 276, "Input",ExpressionUUID->"938a942f-5720-2c41-9800-f5bdd12ec07c"],
+Cell[18833, 501, 2232, 46, 91, "Output",ExpressionUUID->"a1cd1957-8878-a341-8f7a-a08eebf4d740"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21102, 552, 4531, 123, 261, "Input",ExpressionUUID->"aa46f0a3-6d65-a940-94a9-3c746ec9f7b5"],
+Cell[25636, 677, 2225, 46, 91, "Output",ExpressionUUID->"238afb77-8575-2244-a072-8e5b17a551ae"]
+}, Open  ]],
+Cell[27876, 726, 1211, 21, 38, "Input",ExpressionUUID->"9e581922-df32-c944-9745-2d8ec0488d80"],
+Cell[29090, 749, 273, 4, 38, "Input",ExpressionUUID->"791e25a7-62d2-f44e-bdc5-349a4c1141ea"]
+}
+]
+*)
+
