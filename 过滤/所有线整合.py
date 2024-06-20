@@ -1,3 +1,16 @@
+# This project is created by aFei-CQUT
+# ------------------------------------------------------------------------------------------------------------------------------------
+#   About aFei-CQUT
+# - Interests&Hobbies: Programing,  ChatGPT,  Reading serious books,  Studying academical papers.
+# - CurrentlyLearning: Mathmodeling，Python and Mathmatica (preparing for National College Mathematical Contest in Modeling).
+# - Email:2039787966@qq.com
+# - Pronouns: Chemical Engineering, Computer Science, Enterprising, Diligent, Hard-working, Sophomore,Chongqing Institute of Technology,
+# - Looking forward to collaborating on experimental data processing of chemical engineering principle
+# ------------------------------------------------------------------------------------------------------------------------------------
+'''
+所有拟合线汇总
+'''
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -22,8 +35,8 @@ def filter_fit_line(selected_data):
     model.fit(fit_coordinates[:, 0].reshape(-1, 1), fit_coordinates[:, 1])
     k_value = model.coef_[0]
     q_e_intercept = model.intercept_
-    # 去掉最后一个点重新拟合
-    fit_coordinates_without_last_point = fit_coordinates[:-1]
+    # 去掉最后两个点重新拟合
+    fit_coordinates_without_last_point = fit_coordinates[:-2]
     model_without_last_point = LinearRegression()
     model_without_last_point.fit(fit_coordinates_without_last_point[:, 0].reshape(-1, 1), fit_coordinates_without_last_point[:, 1])
     k_value_without_last_point = model_without_last_point.coef_[0]
@@ -44,11 +57,11 @@ def filter_plot_combined(selected_data_list, fit_coordinates_list, fit_line_list
         fit_line = fit_line_list[i]
         fit_line_without_last_point = fit_line_without_last_point_list[i]  
         # 绘制散点图
-        plt.scatter(fit_coordinates[:, 0], fit_coordinates[:, 1], label=f'拟合数据 {i+1}', alpha=0.5)
+        plt.scatter(fit_coordinates[:, 0], fit_coordinates[:, 1], label=f'拟合数据集 {i+1}', alpha=0.5)
         # 绘制拟合线
-        plt.plot(fit_coordinates[:, 0], fit_line.predict(fit_coordinates[:, 0].reshape(-1, 1)), label=f'不去掉最后一个点的拟合线 {i+1}')
-        # 绘制去掉最后一个点重新拟合的线
-        plt.plot(fit_coordinates[:, 0], fit_line_without_last_point.predict(fit_coordinates[:, 0].reshape(-1, 1)), label=f'去掉最后一个点的拟合线 {i+1}')
+        plt.plot(fit_coordinates[:, 0], fit_line.predict(fit_coordinates[:, 0].reshape(-1, 1)), label=f'不去掉最后两个点的拟合线 {i+1}')
+        # 绘制去掉最后两个点重新拟合的线
+        plt.plot(fit_coordinates[:, 0], fit_line_without_last_point.predict(fit_coordinates[:, 0].reshape(-1, 1)), label=f'去掉最后两个点的拟合线 {i+1}')
     for i in range(len(q_list) - 2):
         for j in range(len(selected_data_list)):
             # 绘制Δθ/Δq的水平线
@@ -56,6 +69,11 @@ def filter_plot_combined(selected_data_list, fit_coordinates_list, fit_line_list
         # 绘制垂直虚线
         plt.axvline(x=q_list[i], color='black', linestyle='dashed')
         plt.axvline(x=q_list[i + 1], color='black', linestyle='dashed')
+        
+    # 强制刷新绘图
+    plt.draw()
+    xmin, xmax = plt.xlim()
+    plt.xlim(xmin,0.200)
     plt.xlabel('q 值')
     plt.ylabel('Δθ/Δq')
     plt.legend(loc='upper left')
@@ -72,7 +90,7 @@ def filter_plot_combined(selected_data_list, fit_coordinates_list, fit_line_list
 plt.rcParams['font.family'] = 'SimHei'
 plt.rcParams['axes.unicode_minus'] = False
 # 设置图片分辨率
-plt.rcParams['figure.dpi'] = 150
+plt.rcParams['figure.dpi'] = 125
 
 # 读取数据集并进行拟合和绘图
 imported_data = pd.read_excel(r"./过滤实验数据-非.xlsx", sheet_name=None)
