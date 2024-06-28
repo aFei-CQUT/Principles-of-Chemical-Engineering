@@ -40,23 +40,31 @@ plt.rcParams['axes.unicode_minus'] = False
 plt.figure(figsize=(8, 6))
 
 # 无强化丝数据及拟合直线
-plt.scatter(log_re_no_enhancement, log_nu_pr_no_enhancement, color='blue', label='无强化丝数据')
-plt.plot(log_re_no_enhancement, fit_fn_no_enhancement(log_re_no_enhancement), color='red', label='无强化丝拟合线')
+plt.scatter(log_re_no_enhancement, log_nu_pr_no_enhancement, color='b', label='无强化丝数据')
+plt.plot(log_re_no_enhancement, fit_fn_no_enhancement(log_re_no_enhancement), color='k', label='无强化丝拟合线')
 
 # 有强化丝数据及拟合直线
-plt.scatter(log_re_enhancement, log_nu_pr_enhancement, color='green', label='有强化丝数据')
-plt.plot(log_re_enhancement, fit_fn_enhancement(log_re_enhancement), color='orange', label='有强化丝拟合线')
+plt.scatter(log_re_enhancement, log_nu_pr_enhancement, color='r', label='有强化丝数据')
+plt.plot(log_re_enhancement, fit_fn_enhancement(log_re_enhancement), color='k', label='有强化丝拟合线')
 
 plt.xlabel(r'$\log_{10}(Re)$')
 plt.ylabel(r'$\log_{10}(\frac{Nu}{Pr^{0.4}})$')
 plt.title('有强化丝vs.无强化丝')
 
 # 添加拟合方程
-plt.text(4.25, 1.80, f'无强化丝拟合方程: y = {fit_no_enhancement[0]:.2f}x + {fit_no_enhancement[1]:.2f}', fontsize=10, color='red')
-plt.text(4.10, 1.70, f'有强化丝拟合方程: y = {fit_enhancement[0]:.2f}x + {fit_enhancement[1]:.2f}', fontsize=10, color='orange')
+plt.text(4.3, (fit_fn_no_enhancement(log_re_no_enhancement)[0]+fit_fn_no_enhancement(log_re_no_enhancement)[-1])/2,
+         f'无强化丝拟合方程: y = {fit_no_enhancement[0]:.2f}x + {fit_no_enhancement[1]:.2f}', fontsize=10, color='k')
+plt.text(4.3, (fit_fn_enhancement(log_re_enhancement)[0]+fit_fn_enhancement(log_re_enhancement)[-1])/2,
+         f'有强化丝拟合方程: y = {fit_enhancement[0]:.2f}x + {fit_enhancement[1]:.2f}', fontsize=10, color='k')
 
-plt.legend()
-plt.grid(True)
+plt.grid(True,which='both')
+plt.minorticks_on()
+
+plt.gca().spines['top'].set_linewidth(2)
+plt.gca().spines['bottom'].set_linewidth(2)
+plt.gca().spines['left'].set_linewidth(2)
+plt.gca().spines['right'].set_linewidth(2)
+
 plt.savefig("./拟合图结果/3.png",dpi=300)
-plt.show()
 
+plt.show()

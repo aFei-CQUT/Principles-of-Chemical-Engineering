@@ -29,15 +29,22 @@ plt.rcParams['axes.unicode_minus'] = False
 
 # 绘制双对数图
 plt.figure(figsize=(8, 6))
-plt.scatter(log_re, log_nu_pr, color='blue', label='Data')
-plt.plot(log_re, fit_fn(log_re), color='red', label='Fit')
+plt.scatter(log_re, log_nu_pr, color='r', label='拟合数据点')
+plt.plot(log_re, fit_fn(log_re), color='k', label='拟合曲线')
 plt.xlabel(r'$\log_{10}(Re)$')
 plt.ylabel(r'$\log_{10}(\frac{Nu}{Pr^{0.4}})$')
 plt.title('有强化丝双对数拟合')
-plt.text(4.3,1.8, f'有强化丝拟合:y = {fit[0]:.2f}x + {fit[1]:.2f}', fontsize=12, color='red')
+plt.text(4.3,1.8, f'有强化丝拟合:y = {fit[0]:.2f}x + {fit[1]:.2f}', fontsize=12, color='k')
 
 plt.legend()
-plt.grid(True)
+plt.grid(True,which='both')
+plt.minorticks_on()
+
+plt.gca().spines['top'].set_linewidth(2)
+plt.gca().spines['bottom'].set_linewidth(2)
+plt.gca().spines['left'].set_linewidth(2)
+plt.gca().spines['right'].set_linewidth(2)
+
 plt.savefig("./拟合图结果/2.png",dpi=300)
 plt.show()
 
